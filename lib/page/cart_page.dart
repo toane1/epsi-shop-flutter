@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../bo/cart.dart';
@@ -21,6 +22,7 @@ class CartPage extends StatelessWidget {
         child: context.watch<Cart>().items.isNotEmpty
             ? const ListCart()
             : const EmptyCart(),
+
       ),
     );
   }
@@ -33,7 +35,7 @@ class EmptyCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +86,20 @@ class ListCart extends StatelessWidget {
                                   .removeArticle(cart.items[index]),
                             ),
                           )),
-                ),
+                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children:[
+
+                  ElevatedButton(
+                      child:
+                        const Text("Procéder au paiement"),
+                        onPressed: () => context.go('/cart/paiement'),
+
+                    ),
+                  ]
+                )
               ],
             ));
   }

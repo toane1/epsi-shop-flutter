@@ -39,7 +39,7 @@ void main() {
   final listArticles = [
     Article(
         nom: "MBP",
-        description: "Ordinateur très che",
+        description: "Ordinateur très cher",
         image: "https://store.storeimages.cdn-apple.com/4668/"
             "as-images.apple.com/is/mbp-14-spacegray-cto-hero-202310"
             "?wid=772&hei=466&fmt=jpeg&qlt=95&.v=1697913381764",
