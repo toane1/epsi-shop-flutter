@@ -3,13 +3,30 @@ import 'package:flutter/foundation.dart';
 
 class Cart with ChangeNotifier {
   final _items = <Article>[];
+  String getTVA(){
+    var prix = 0 as num;
+    for (Article item in _items) {
+        prix+= item.prix;
+    }
+    prix = prix*100 * 0.2;
+    return (prix/100).toString();
+  }
+
+  String getTTC(){
+    var prix = 0 as num;
+    for (Article item in _items) {
+      prix+= item.prix;
+    }
+    prix = prix*100 + prix*100 * 0.2;
+    return (prix/100).toString();
+  }
 
   String priceTotalInEuro() =>
       "${_items.fold(0 as num, (itemPrev, item) => itemPrev + item.prix) / 10}€";
   //String priceTotalInEuroSimpl() {
   //  var prix = 0 as num;
-  //  for (Article item in _items) {
-  //    prix+= item.prix;
+  //  for cle item in _items) {
+  //    prix+= it(Artiem.prix;
   //  }
   //  return "$prix€";
   //}

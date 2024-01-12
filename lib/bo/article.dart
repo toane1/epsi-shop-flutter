@@ -14,6 +14,7 @@ class Article {
   });
   String getPrixEuro() => "${prix}€";
 
+
   Map<String, dynamic> toMap() {
     return {
       'nom': this.nom,
